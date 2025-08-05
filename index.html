@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>สุ่มมหาวิทยาลัย คณะ และรอบที่ติด</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #e0f7fa, #fff);
+      padding-top: 80px;
+    }
+    h1 {
+      color: #333;
+      font-size: 28px;
+    }
+    #result {
+      font-size: 22px;
+      color: #0066cc;
+      margin-top: 40px;
+      line-height: 2;
+      min-height: 120px;
+    }
+    button {
+      font-size: 20px;
+      padding: 12px 28px;
+      margin-top: 20px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+  <h1>สุ่ม</h1>
+  <button onclick="randomResult()">สุ่มเลย!</button>
+  <div id="result">กดปุ่มเพื่อสุ่ม</div>
+
+  <script>
+    const universities = [
+      "จุฬาลงกรณ์มหาวิทยาลัย",
+      "มหาวิทยาลัยธรรมศาสตร์",
+      "มหาวิทยาลัยเชียงใหม่",
+      "มหาวิทยาลัยมหิดล",
+      "มหาวิทยาลัยเกษตรศาสตร์",
+      "มหาวิทยาลัยขอนแก่น",
+      "มหาวิทยาลัยศิลปากร",
+      "มหาวิทยาลัยนเรศวร",
+      "มหาวิทยาลัยสงขลานครินทร์",
+      "มศว. (ศรีนครินทรวิโรฒ)",
+      "สถาบันเทคโนโลยีพระจอมเกล้าลาดกระบัง",
+      "พระจอมเกล้าธนบุรี (บางมด)",
+      "มหาวิทยาลัยเทคโนโลยีสุรนารี",
+      "มหาวิทยาลัยบูรพา",
+      "มหาวิทยาลัยแม่ฟ้าหลวง",
+      "มหาวิทยาลัยวลัยลักษณ์",
+      "มหาวิทยาลัยอุบลราชธานี",
+      "มหาวิทยาลัยราชภัฏสวนสุนันทา",
+      "มหาวิทยาลัยราชภัฏจันทรเกษม",
+      "มหาวิทยาลัยรามคำแหง",
+      "มหาวิทยาลัยกรุงเทพ",
+      "มหาวิทยาลัยหอการค้าไทย",
+      "มหาวิทยาลัยรังสิต",
+      "มหาวิทยาลัยธุรกิจบัณฑิตย์",
+      "มหาวิทยาลัยนานาชาติแสตมฟอร์ด",
+      "มหาวิทยาลัยนานาชาติ SIIT",
+      "มหาวิทยาลัยอัสสัมชัญ (ABAC)",
+      "มหาวิทยาลัยศรีปทุม",
+		"ราดภัทสักที่"
+		
+      
+		
+    ];
+
+    const faculties = [
+      "วิศวกรรมศาสตร์",
+      "นิเทศศาสตร์",
+      "แพทยศาสตร์",
+      "บัญชี",
+      "บริหารธุรกิจ",
+      "อักษรศาสตร์",
+      "รัฐศาสตร์",
+      "วิทยาศาสตร์",
+      "เทคโนโลยีสารสนเทศ",
+      "นิติศาสตร์",
+      "ครุศาสตร์",
+      "เศรษฐศาสตร์",
+      "สัตวแพทยศาสตร์",
+      "สถาปัตยกรรม",
+      "ศิลปกรรมศาสตร์",
+      "ทันตแพทยศาสตร์",
+      "สาธารณสุขศาสตร์",
+		"เภสัชศาสตร์",
+		"คณะที่หวัง",
+		"คณะที่ไม่อยากได้"
+    ];
+
+    const admissionRounds = [
+      "รอบที่ 1 : Portfolio",
+      "รอบที่ 2 : โควตา",
+      "รอบที่ 3 : แอดมิชชัน",
+      "รอบที่ 4 : รับตรงอิสระ",
+      "TCAS รอบสุดท้าย",
+      "รอบพิเศษสำหรับเด็กซิ่ว",
+      "รอบอินเตอร์ (International)",
+      "รอบสอบตรงของมหาวิทยาลัย"
+    ];
+
+    function randomResult() {
+      const resultEl = document.getElementById("result");
+      resultEl.innerText = "กำลังสุ่มผลลัพธ์...";
+      
+      setTimeout(() => {
+        const uni = universities[Math.floor(Math.random() * universities.length)];
+        const faculty = faculties[Math.floor(Math.random() * faculties.length)];
+        const round = admissionRounds[Math.floor(Math.random() * admissionRounds.length)];
+
+        resultEl.innerHTML = `
+          ✅ คุณติดที่: <b>${uni}</b><br>
+          ✅ คณะ: <b>${faculty}</b><br>
+          ✅ ผ่านรอบ: <b>${round}</b>
+        `;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
